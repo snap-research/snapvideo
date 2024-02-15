@@ -1,0 +1,1376 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="resources/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/stylesheet.css" rel="stylesheet">
+
+    <title>SnapVideo</title>
+    <link rel="icon" type="image/x-icon" href="resources/cvr_logo_notext.png">
+</head>
+<body>
+
+
+    <section class="jumbotron text-center pb-2">
+        <div class="container">
+            <h1 class="jumbotron-heading">SnapVideo: Scaled Spatiotemporal Transformers for Text-to-Video Synthesis</h1>
+
+            <h4 class="font-italic pt-2" style="font-weight: normal">
+                <a href="https://www.willimenapace.com/">Willi Menapace</a><sup>1,2,*</sup>
+                <a href="https://github.com/AliaksandrSiarohin">Aliaksandr Siarohin</a><sup>1</sup>
+                <a href="https://universome.github.io/">Ivan Skorokhodov</a><sup>1</sup>
+                <a href="https://edeyneka.github.io/">Ekaterina Deyneka</a><sup>1</sup>
+                <a href="https://tsaishien-chen.github.io/">Tsai-Shien Chen</a><sup>1,3,*</sup></br>
+                <a href="https://anilkagak2.github.io/">Anil Kag</a><sup>1</sup>
+                <a href="https://yuwfan.github.io/">Yuwei Fang</a><sup>1</sup>
+                <a href="https://scholar.google.com/citations?user=PVZ0-dEAAAAJ&hl=en">Aleksei Stoliar</a><sup>1</sup>
+                <a href="http://elisaricci.eu/">Elisa Ricci</a><sup>2,4</sup>
+                <a href="https://alanspike.github.io/">Jian Ren</a><sup>1</sup>
+                <a href="http://www.stulyakov.com/">Sergey Tulyakov</a><sup>1</sup>
+            </h4>
+
+            <p class="pb-4 mt-3">
+                 Snap Inc.<sup>1</sup> University of Trento<sup>2</sup> UC Merced<sup>3</sup> Fondazione Bruno Kessler<sup>4</sup>
+                 Work performed while interning at Snap Inc.<sup>*</sup><br>
+            </p>
+
+        </div>
+
+    </section>
+
+        <div class="container-md">
+
+            <div class="row pt-1 justify-content-sm-center">
+                  
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="" role="button">Paper</a>
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="index.html" role="button">Overview</a>
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="stories.html" role="button">Stories</a>
+                <div class="btn-group">
+                    <a class="sm-1 mx-1 btn btn-primary mt-2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Samples</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                        <a class="dropdown-item" href="our_samples.html" role="button">More Samples</a>
+                        <a class="dropdown-item" href="our_samples_3d.html" role="button">Novel Views</a>
+                        <a class="dropdown-item" href="our_samples_diversity.html" role="button">Samples Diversity</a>
+                        <a class="dropdown-item" href="our_samples_hierarchical.html" role="button">Hierarchical Generation</a>
+                        <a class="dropdown-item" href="our_samples_ucf101.html" role="button">UCF101</a>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <a class="sm-1 mx-1 btn btn-primary mt-2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comparisons</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                        <a class="dropdown-item" href="gen2_pikalab_floor33.html" role="button">Gen2-PikaLab-Floor33</a>
+                        <a class="dropdown-item" href="imagen_video.html" role="button">Imagen Video</a>
+                        <a class="dropdown-item" href="pyoco.html" role="button">PYoCo</a>
+                        <a class="dropdown-item" href="video_ldm.html" role="button">Video LDM</a>
+                        <a class="dropdown-item" href="make_a_video.html" role="button">Make-A-Video</a>
+                    </div>
+                </div>
+
+
+            </div>  
+
+        </div>
+
+		<div class="container">
+
+
+			<hr class="mt-5">
+			
+			<h2 class="pt-4">Novel View Generation</h2>
+
+			<p class="lead">We show a collection of samples obtained from SnapVideo with prompts eliciting circular camera movement around different object categories. We find that the model is capable of generating plausible novel views of objects, suggesting that the model possesses an understanding of the 3D object geometry.</p>
+
+
+			<p class="lead pt-2">Hover the cursor on the video to reveal the prompt.</p>
+			
+			<!-- Grid row -->
+			<div class="row pt-3 nopadding">
+
+
+
+
+
+			</div>
+		</div>
+		<div class="container" style="max-width: 100%; ">
+			<!-- Grid row -->
+			<div class="row pt-3 nopadding">
+
+
+
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/bd73ef19-d178-46fd-af8d-d6131984264c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a donkey</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/0a8a79b6-064b-4d4c-a61d-c1a8eaa2592a.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a car made of vegetables</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/cf0a467e-5ab5-497f-90e7-1735039c5a92.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a shiny bar of gold</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/56226761-1032-44e1-93dc-7f525d53f8bf.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a miniature train station model</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/c90adc67-d32b-49c3-9ae3-9bfd1d45937a.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a ferrari supercar</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/ccbc975f-ddd5-41e0-a848-e29fe2a0005e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a metal chair</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/a65cfaba-b254-4af6-bea0-cb35dcc9da2e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around the tower of Pisa</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/b482954c-6408-4acf-ab39-60fbbaa83424.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around an apple</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/5d22e1bb-71c6-4db8-891c-9606a860933b.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a vase of flowers</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/b54ea855-6640-49e7-ab27-371142339447.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a chair</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/9218bf67-6488-4e89-b9d9-a3f3e615e1e0.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a marble statue masterpiece, black background</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/5e410b08-3ba3-4a2c-853b-8bbca3e8841b.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a sailboat in the ocean</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/8ca3dcf7-7446-469e-85eb-43462439e917.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a stunning watch</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/97d2dec3-c6db-4357-9ee5-4b7fa6e2d3be.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around the Colosseum</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/01eee804-4ff4-4026-af3e-af7a2415c56a.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a house made of sushi</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/eb2b718c-798c-4fa1-8234-8f5a0a58e4c0.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera moving around a parked airplane</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/a11fc2e0-004f-44f0-94ff-98854c8c3680.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a painting</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/b8c2abf6-e2fb-49ac-bfe6-3fa8931e7332.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a chair</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/641a6887-8ccf-43df-82f4-5244253ae93a.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a ferrari supercar</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/cc91dc3e-452b-4fa9-9d57-fad7743c1faf.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a miniature train model</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/c597bf93-2cca-4e68-b60f-c3ee97b2fba5.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a marble statue masterpiece, black background</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/9fd763b8-5c74-4a9a-a1c5-af5aeb791288.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera moving around a parked helicopter</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/c2485a5f-d047-4d1d-9c20-087942d9ed0c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a dog</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/4436d11a-d2e8-4e79-95d1-0d6b02749a73.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around the face of an elderly men with a white beard</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/7762929c-fe48-4616-b1ee-b84e1fc2db46.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera moving around a delicious meal</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/bb97f8a0-d683-4479-ba43-317d7358c734.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a pair of headphones</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/521994db-e345-4ccc-acbe-fd3e9b569591.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a golden ring with inscriptions red as fire</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/df99d4db-40fb-4b8f-8d86-480cc7810ec6.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a plate with delicious sushi in it</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/3f5ae2d1-6d23-48d4-b6f3-239a62e1bd86.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a vase of flowers</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/a9c303ff-db2f-4173-8346-6ee3d5faa374.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a glass chair</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/78303c0a-9d5c-4c8b-85fd-f7de8707c7d8.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a chessboard</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/c016507d-dc33-48be-9f5f-0402e421e238.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a firepit</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/5538534e-7f44-459e-a815-c18c6c59613c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a stunning watch</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/9034118a-5442-4b7d-94d7-9474b5c1719c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a firepit</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/ce9599e2-8a2c-4843-a9a0-5c9dafe6e34f.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around the face of an elderly men with a white beard</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/4f3e56f0-9aa5-4ae4-940a-54f62dfc03aa.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a luggage full of stickers</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/43964534-798c-41ec-b532-e7a04ef359ee.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around the tower of Pisa</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/8409c9be-c940-4b25-b5db-09ef2fc2f40f.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around the tower of Pisa</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/6e5329c5-7c88-4b2b-9a27-2b8688617942.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a tshirt</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/4f2014fb-71fb-4277-b0a3-0e6b16ec784d.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around an elegant tube hat</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/8e42fcab-9a55-46d7-89f0-a136d18ce61b.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a pair of headphones</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/55253700-aa4d-4e44-b6fd-f1ecf4d68022.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a happy squirrel</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/172e58ec-42a9-4c0e-b6ab-520dc5ba76f9.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a sports car</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/29e67703-7a25-4de2-be0a-6e1b09ff3da9.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a house made of sushi</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/04d01429-4749-4625-9914-84ada0d76e89.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a marble statue masterpiece, black background</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/2e855e79-fd9f-4b8f-a2e7-6a522ebc6bc2.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a sports car</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/e3c44c40-2b43-4151-b412-a5df5de226fb.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a happy squirrel</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/9fd45e17-402b-4b84-a110-bb578fca97c8.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around an elegant round table</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/8ecb9c50-e727-4a9c-a66f-11d8490f0c87.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a clock tower</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/ac90611d-d7fc-4f2c-b05f-c4f44defa4e4.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a miniature house made of lego</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/0f73a169-cd1e-4705-9fcc-f213e229d5b1.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around the tower of Pisa</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/ba33dfd3-a181-47a0-a371-7d5368d0c9b4.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a miniature train station model</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/e64d7b3b-7653-46fd-9443-f3d8a6d459fb.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a stunning watch</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/a89cf4f6-610f-4f13-a070-1b88370e711e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around the starship rocket on its launch pad</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/c7ff552b-ada8-46ec-8431-0c2e81a8d5e5.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a miniature house made of lego</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/7e0aaf81-1aa7-4cc8-bc3c-e1022d56ea6d.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera moving around a car</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/e819b131-616a-44ec-82c1-c8d4d8307232.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a vase with fruit in it</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/b335b8ce-3a6e-459d-a19a-a03e9094fcc2.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera moving around a car made of ice</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/e536a686-9c65-436d-b7de-9dac9e39c841.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera moving around a vase of flowers</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/643cba64-5327-4892-8cd2-418809b27d8e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a car made of carrots</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/6d2ebe2f-b183-4fea-bfcc-96a1ff727f2f.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around the face of an elderly men with a white beard</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/aac847b7-a17d-44bf-9472-7c7dcae8a543.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a vase of flowers</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/4afa62f3-97e2-436c-ab2e-94e02a4ee021.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a plate with delicious sushi in it</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/7d669e9d-7dd5-4ad7-89c5-5be4bcb8738b.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a steam locomotive</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/fad40ff5-8488-4d57-ba99-90028cc2c9cb.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a mega yacht in the ocean</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/559cdb1b-5e5a-4a68-9ef5-ee0a8c2c21ea.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a sailboat in the ocean</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/bd064eaf-ae3c-4c24-8464-1969f873290b.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a car made of sushi</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/69d0d2df-576c-407b-b0fd-b876dc8e2658.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a western saloon</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/4f8cc37d-9e5d-438a-bbaa-6ec8d1764f88.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a marble statue masterpiece, black background</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/da329ec9-119f-4743-9b94-86029cff241a.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a mega yacht in the ocean</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/e5410571-eed7-45c3-926d-4994186178bc.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a pair of glasses</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/81df4ecb-7557-43e4-9580-e22dd3e77b68.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a marble statue masterpiece, black background</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/5a7784b4-0d1c-44c3-8e62-d3ae94ec4eb3.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a firepit</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/eaff1dc6-b6f8-424d-93df-fc31bee886cf.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around the face of an elderly men with a white beard</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/92b805c9-3ee3-42fb-9948-d7d9296dabda.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a parked helicopter</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/8cd50e5c-41ee-447f-9b97-a37537d957cc.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a vase with fruit in it</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/3358cb6d-276c-4874-a860-d9dc054ab7e4.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a dog</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/1fb27d0b-166c-4df8-97c0-1c3bcc699ce9.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a glass chair</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/9c647630-6fb8-4691-9979-0cf6bde0ed85.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around an elegant tube hat</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/f342a3e2-4b97-4d9f-b2aa-15b877982f3f.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a vase of flowers</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/d3c2f1e5-79ea-4ed1-92da-0720efb39cef.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a plate with delicious sushi in it</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/b9c2f224-28b1-4dce-bba0-85776261687c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a dog</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/a270d8a2-ec23-4448-b206-461435124e67.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a vase with fruit in it</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/b1b7270a-97cf-45e1-9303-6d9268072e7b.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a marble statue masterpiece, black background</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/a5d2b18a-12bc-4901-8d45-cc82a522772e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a miniature train model</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/2bfb501c-645e-4cbf-ba7a-ab203023627f.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a dog</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/c405c3ef-0f32-4517-ab07-00055cf3810c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a vase of flowers</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/4b45fc23-61b5-46e1-959a-a1570fe0db47.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a dog</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/f844250d-e2c0-4cec-b618-f2bacdeefaa9.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a precious golden watch</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/6023da0c-f396-4ca3-8054-d6247f92e432.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a happy squirrel</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/71991e4e-da14-4925-b8a5-225363822c65.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a glass of wine</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/44b25241-796b-4c3b-b382-6de670ef5c8b.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a car made of sushi</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/541efade-4025-4bc4-8d81-a5454bba2bbd.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a car made of vegetables</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/5fd30bb6-3e9a-4319-a934-86116a340ca4.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera moving around a greek status, black background</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/fb0c5ce4-cb0a-43fd-9980-54866e6c06a7.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a car</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/b84ad5c2-111b-4c82-a517-387b9304804c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a marble statue masterpiece, black background</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/d8d2fa66-d978-407c-a652-685825fa4e7e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a car made of carrots</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/193550dd-7845-4972-a2b7-128fc98ea738.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a truck</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/7b04f8a8-2ee8-4089-90dd-8959ce7b4b47.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a parked airplane</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/a2f6698c-6900-4d0f-9875-ad8b0fa2475c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around an elegant round table</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/7567acd5-3484-4c3c-a8b5-8fbe4f058046.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a car made of ice</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/787fe3d7-13d8-4847-94c3-5b68013b6b0b.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a miniature house made of lego</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/2e71d3c3-e3ff-4638-8bab-b6b306b52f52.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a vase with fruit in it</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/a758f598-5865-4669-b31b-6ec4bf2953b7.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around the Colosseum</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/7d275adf-43e2-45de-b263-b5721386b47b.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a chair made of ice</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/eacb7b54-200f-42a3-bd03-b6297dda7b20.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a marble statue masterpiece, black background</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/00d2bbed-2488-4b3c-afc0-5943f32792ab.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a sports car</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/950693c1-c719-4dda-a80a-282b0e7bc684.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a donkey</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/67f277c0-e359-464b-aa9b-6192a0db6df2.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around the Space Shuttle on the launch pad</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/e3ab13c5-48e3-4553-ac36-89800821f7de.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a steam locomotive</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/59b18ae8-f3eb-45d5-b6dc-7708ad30d584.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a sports car</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/1f2d24f9-6743-4560-a0ee-327fc4866e8c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around the Colosseum</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/214e8b61-745f-477b-a9b6-2e5087e49e33.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a western saloon</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/30c41de7-627d-49bd-ab74-623e0d3f178e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a dog</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/0ec46c63-b177-4108-8d91-3d0fd335ddb1.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a car made of sushi</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/fdfc51fc-a8a9-4363-97a7-15e7a6acc50c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around an apple</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/b23ff0cb-519d-45b2-8f3b-558eb4b1c29e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a plate with delicious sushi in it</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/2dcfa701-0636-4e67-aa2a-e17018a90947.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a delicious meal</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/91f670b5-bd7a-4097-9c41-3e19e9f57d93.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a miniature house made of lego</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/467d3081-4f1d-4f19-9572-5b5a6473807d.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around an elegant round table</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/3ee5e72b-6b25-41c4-8b42-a469a0e85f31.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a car made of sushi</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/e02bb5b1-b35a-4c79-8487-6f3663ddfd20.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera orbiting around a clock tower</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/9d629777-28ca-415b-b653-9fa49fc633f1.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a house made of sushi</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples_3d/acaf7141-598b-49f2-b61f-18e44dae29ed.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Camera circling around a car</div>
+    </div>
+</div>
+<!-- Grid column -->
+
+
+
+
+
+
+
+
+
+			</div>
+			<!-- Grid row -->
+		</div>
+
+        <div class="container-md mt-4">
+            <div class="row pt-1 justify-content-sm-center">
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="our_samples.html" role="button">Back</a>
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="our_samples_diversity.html" role="button">Next</a>
+            </div>  
+        </div>
+
+		<!-- Footer -->
+		<section class="jumbotron text-center py-7 mt-5 mb-0">
+		</section>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="resources/jquery-3.4.1.slim.min.js"></script>
+		<script src="resources/popper.min.js"></script>
+		<script src="resources/bootstrap.min.js"></script>
+
+	</body>
+	</html>

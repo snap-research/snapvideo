@@ -1,0 +1,1489 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="resources/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/stylesheet.css" rel="stylesheet">
+
+    <title>SnapVideo</title>
+    <link rel="icon" type="image/x-icon" href="resources/cvr_logo_notext.png">
+</head>
+<body>
+
+
+    <section class="jumbotron text-center pb-2">
+        <div class="container">
+            <h1 class="jumbotron-heading">SnapVideo: Scaled Spatiotemporal Transformers for Text-to-Video Synthesis</h1>
+
+            <h4 class="font-italic pt-2" style="font-weight: normal">
+                <a href="https://www.willimenapace.com/">Willi Menapace</a><sup>1,2,*</sup>
+                <a href="https://github.com/AliaksandrSiarohin">Aliaksandr Siarohin</a><sup>1</sup>
+                <a href="https://universome.github.io/">Ivan Skorokhodov</a><sup>1</sup>
+                <a href="https://edeyneka.github.io/">Ekaterina Deyneka</a><sup>1</sup>
+                <a href="https://tsaishien-chen.github.io/">Tsai-Shien Chen</a><sup>1,3,*</sup></br>
+                <a href="https://anilkagak2.github.io/">Anil Kag</a><sup>1</sup>
+                <a href="https://yuwfan.github.io/">Yuwei Fang</a><sup>1</sup>
+                <a href="https://scholar.google.com/citations?user=PVZ0-dEAAAAJ&hl=en">Aleksei Stoliar</a><sup>1</sup>
+                <a href="http://elisaricci.eu/">Elisa Ricci</a><sup>2,4</sup>
+                <a href="https://alanspike.github.io/">Jian Ren</a><sup>1</sup>
+                <a href="http://www.stulyakov.com/">Sergey Tulyakov</a><sup>1</sup>
+            </h4>
+
+            <p class="pb-4 mt-3">
+                 Snap Inc.<sup>1</sup> University of Trento<sup>2</sup> UC Merced<sup>3</sup> Fondazione Bruno Kessler<sup>4</sup>
+                 Work performed while interning at Snap Inc.<sup>*</sup><br>
+            </p>
+
+        </div>
+
+    </section>
+
+        <div class="container-md">
+
+            <div class="row pt-1 justify-content-sm-center">
+                  
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="" role="button">Paper</a>
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="index.html" role="button">Overview</a>
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="stories.html" role="button">Stories</a>
+                <div class="btn-group">
+                    <a class="sm-1 mx-1 btn btn-primary mt-2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Samples</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                        <a class="dropdown-item" href="our_samples.html" role="button">More Samples</a>
+                        <a class="dropdown-item" href="our_samples_3d.html" role="button">Novel Views</a>
+                        <a class="dropdown-item" href="our_samples_diversity.html" role="button">Samples Diversity</a>
+                        <a class="dropdown-item" href="our_samples_hierarchical.html" role="button">Hierarchical Generation</a>
+                        <a class="dropdown-item" href="our_samples_ucf101.html" role="button">UCF101</a>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <a class="sm-1 mx-1 btn btn-primary mt-2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comparisons</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                        <a class="dropdown-item" href="gen2_pikalab_floor33.html" role="button">Gen2-PikaLab-Floor33</a>
+                        <a class="dropdown-item" href="imagen_video.html" role="button">Imagen Video</a>
+                        <a class="dropdown-item" href="pyoco.html" role="button">PYoCo</a>
+                        <a class="dropdown-item" href="video_ldm.html" role="button">Video LDM</a>
+                        <a class="dropdown-item" href="make_a_video.html" role="button">Make-A-Video</a>
+                    </div>
+                </div>
+
+
+            </div>  
+
+        </div>
+
+		<div class="container">
+
+
+			<hr class="mt-5">
+			
+			<h2 class="pt-4">SnapVideo Samples</h2>
+
+			<p class="lead">We show a collection of samples produced by our model on a set of gathered prompts.</p>
+
+			<p class="lead">SnapVideo can syntesize a large number of different concepts. Most importantly, thanks to joint spatiotemporal modeling, it can produce videos with challenging motion including large camera movement, POV videos, and videos of fast moving objects. Notably, the method maintains temporal consistency and avoids video flickering artifacts.</p>
+
+			<p class="lead pt-2">Hover the cursor on the video to reveal the prompt.</p>
+
+			<!-- Grid row -->
+			<div class="row pt-3 nopadding">
+
+
+
+
+
+
+
+			</div>
+		</div>
+		<div class="container" style="max-width: 100%; ">
+			<!-- Grid row -->
+			<div class="row pt-3 nopadding">
+
+
+
+
+
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/c58389c0-eb5f-4547-9a29-eba30e94d1d0.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">a child in the air while jumping on a trampoline, hand-held camera</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/fbc57370-580d-4b87-883a-663484a33b21.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In the heart of a city's underground racing scene, modified cars with roaring engines compete in illegal street races. Showcase the intense acceleration, drifts around corners, and the adrenaline-pumping energy of the night races.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/600633da-9b0f-483b-96c4-62b967cf0f59.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Cinematically zoom in on an otter expertly operating an espresso machine in a cozy cafe. Capture the intricate details of tiny paws manipulating buttons, steam rising, and coffee beans freshly ground.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/2e3b1420-b108-498f-b6f0-443c993068ad.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A burning volcano.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/c61af757-c3b4-44f7-b981-892da5a5109e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A chihuahua in astronaut suit and sunglasses floating in space, earth and moon in the background, photo realistic, 8k, cinematic lighting, hd, atmospheric, hyperdetailed, deviantart, photography, glow effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/49750c16-bc24-465a-b797-27d568f324c7.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">a blue pickup truck with a rhinoceros in its flatbed</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/6132618b-e5e1-45dd-9322-7d3972d15546.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">two unicorns in armors are playing a game of chess, in a medieval castle, high definition, photo-realistic style</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/357d08b2-106d-47d9-ac6a-2f15fb17e8d1.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A middle-aged woman with short, silver hair and glasses.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/6ffaafc6-def8-4962-9147-e24fe46196af.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In the midst of a concert, the camera captures the drummer's energetic performance in intricate detail. Cinematic 4K footage, the camera dynamically moves with the rhythm, alternating between wide shots of the stage and close-ups of the drummer's expressive playing.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/a6014b6e-9fe5-4054-a400-4933c7175c7e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Teddy bear walking down 5th Avenue, front view, beautiful sunset, close up, high definition, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/afcbee29-4b3b-43f7-afff-b4e83d10a53e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">The night is dark and quiet. Only the dim light of streetlamps illuminates the deserted street.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/d5ca2598-4b7c-420d-b65c-348db0cd139b.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Follow a mountain biker descending a rugged trail. Utilize a mix of drone shots and helmet-mounted cameras to capture the breathtaking landscape, detailed bike maneuvers, and the adrenaline-fueled journey down the mountain in cinematic 4K.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/ba38d001-7410-45b9-bc15-5ecc86d93a1c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In Macro len style, a photograph of a knight in shining armor holding a basketball</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/e2a35079-ef20-4faf-a595-0b485c670bed.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A snowman in a Venetian gondola ride, 4k, high resolution</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/19cd3ac6-be3c-4c58-bfdf-17ee5df42c3d.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A ghost made with ice in the Grand Canyon, with a breathtaking view, photorealistic</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/15029f2c-ac1c-45e8-b1f9-969b94f44272.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Beneath the moonlit waves, a mermaid engages in a graceful ballet. 4K precision showcases the shimmering scales as the camera gracefully glides around the mermaid, capturing the fluidity of her movements.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/b611cb8a-da59-4a80-8cac-70cfd284ee6f.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut feeding ducks on a sunny afternoon, reflection from the water.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/459bc041-e44b-4cdc-a0fc-fd7a5b6897b0.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Dust fills the air as off-road vehicles and motorcycles tear through a vast desert landscape. Capture the excitement of jumps over sand dunes, challenging terrain, and competitors pushing the limits of their machines.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/76c27233-012c-4434-a2ef-eeb04f3f484e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">a motorcycle race through the city streets at night</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/d7143e21-57ee-4ca7-a432-6a5e00fd1fb7.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In a chic urban kitchen, a cat donned in a chef's hat expertly kneads dough on a marble countertop. Cinematic close-up shots capture the feline's precise movements. Camera smoothly orbits around the cat, showcasing culinary prowess.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/868720ee-9953-4cea-aff2-c3189c69768e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Three hamster runs on a wheel, exercising in its cage.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/29194501-4252-4db2-ad89-53c913526b8d.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">large motion, A group of six rabbits dressed in Victorian attire gathers for a garden tea party.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/f3b8f1a5-db42-4974-b340-12a16669526b.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">a motorcycle race through the city streets at night</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/ee1672b1-65dd-44c2-90f5-ce5db70fa098.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In a quaint library setting, otters don scholarly attire and engage in a heated debate over miniature books. Cinematic tracking shots following their animated gestures, highlighting the comical intensity of the intellectual otter discourse.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/92ada22b-63a7-4c2b-ae8c-2812c7c55e3e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In the vastness of space, starships engage in a cosmic clash. Render intricate details of the spacecraft, explosions, and cosmic debris. Utilize sweeping camera movements to convey the enormity of the battle and close-ups for intense moments.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/5a875b09-068e-4215-91c0-0676b5ae6370.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">drove viewpoint, fireworks above the Parthenon</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/ffbc4fa4-7abe-4df7-a064-651ad0806fa8.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In a chic urban kitchen, a cat donned in a chef's hat expertly kneads dough on a marble countertop. Cinematic close-up shots capture the feline's precise movements. Camera smoothly orbits around the cat, showcasing culinary prowess.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/6fc4a648-e20d-42b4-9a51-cea1d5c9c5ef.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A fox dressed in suit dancing in park.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/1c3c6384-96a0-4e0f-bc41-dacc6398d1ed.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">a rusty red pickup truck with white wheel rims</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/d00782b7-1690-45e4-92ca-f336ce56dfec.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In the vastness of space, starships engage in a cosmic clash. Render intricate details of the spacecraft, explosions, and cosmic debris. Utilize sweeping camera movements to convey the enormity of the battle and close-ups for intense moments.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/402959ad-3f84-428e-bfe9-1ae985b7a588.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A man with a skull face in flames walking around Piccadilly circus</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/d33116dc-c07f-4f4f-a275-f72894407a5c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A portrait of a mouse in renaissance clothing eating a cheese slice, painting style.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/692bf1a0-a717-47e5-b89a-f6ceafcfe12d.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">On moonlit rooftops, a cat burglar sprints pursued by security. Illuminate details of the character's agile movements and the shimmering city below. Utilize dynamic camera angles, executing daring leaps alongside the protagonist.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/59b9bb48-d06b-484e-89ef-9850742349d1.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A man cruises through the city on a motorcycle, feeling the adrenaline rush</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/d245d4b2-242e-47ac-b093-cbafec6844a5.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">hand-held camera, Three-quarters front view of a blue 1977 Corvette coming around a curve in a mountain road and looking over a green valley on a cloudy day.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/08dc8714-3fd7-4d09-9169-b804785ffb35.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A huge dinosaur skeleton is walking in a golden wheat field on a bright sunny day.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/c38e9137-ceed-4822-b7cc-2fd7bbe38b2d.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut riding a horse in sunset, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/1e5a8b32-3864-4037-ab87-bb25cf8baacd.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A chihuahua in astronaut suit floating in space, photo realistic, 8k, cinematic lighting, hd, atmospheric, hyperdetailed, deviantart, photography, glow effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/1313e583-9f3b-4f7b-95c8-414dacd567ed.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A fantasy landscape, trending on artstation, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/8ab73e55-3b55-4619-8212-58c5faaf70df.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A corgi ice skating in winter wonderland, photorealistic</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/493ed9f2-a727-44bc-aeb2-376f69042860.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A rainforest orchid releases a cloud of pollen into the air, illuminated by soft sunlight. Cinematic 4K macro shot featuring a slow circular pan, immersing the viewer in the ethereal beauty of the floral event.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/9b8fbb8e-7ae7-43c4-ad37-2fcee3dc5f53.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A majestic white unicorn with a golden horn walking in slow-motion under water</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/2a801e45-9386-4ecc-a755-adb639307b57.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">zoom in, A boy, fascinated by the fish, spends hours at the aquarium.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/07116f33-8dd0-43b3-8e67-6812b898964a.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In a dimly lit jazz club, a cat sits at a grand piano, its paws gracefully tapping the keys. Cinematic lighting, close-up shots of intricate paw movements, and a gentle tilt of the camera to highlight the feline's musical prowess.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/47ae3322-7f1f-47b2-9236-9797f0b310e9.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Two individuals ride a bike through the temple gates.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/a0037c0e-df91-449a-9f22-76a2202195b9.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">large motion, a flag with a dinosaur on it</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/0404728a-8b45-4f1c-a9a7-811cf758ae63.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Two fish eating spaghetti on a subway</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/afbd5a66-757d-4e2c-8eb4-1573bc65dc01.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Roar through a majestic canyon with powerful race cars. The camera races alongside, capturing the intense motion as vehicles speed through the winding canyon roads, dust billowing in their wake.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/4d2f52f0-dac4-482e-928a-8e58b2ca2146.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Within a cozy study, otters clad in detective attire inspect miniature clues with magnifying glasses. Execute precise close-ups of their detective work, and implement a gentle dolly movement to create a sense of intrigue around the otters' investigative actions.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/9361a5b0-7db7-4c02-9cdc-43e22c333f58.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">a cowboy panda riding on the back of a lion, hand-held camera</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/c3b354d7-6f64-4257-b0c8-3df9f8adb60f.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Amidst a rainy cityscape, a covert operative navigates dark alleys. Emphasize the shimmering reflections on wet surfaces and execute precise, slow-motion tracking shots to convey the suspense of the stealthy mission.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/4b1632b1-86c3-4213-aae2-d9fea54032be.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">With the style of Romero Britto, a person with arms like a tree branch</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/86210a6a-6eb4-4fdd-9639-493a72f90620.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Two raccoons reading books in NYC Times Square.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/4cdb013e-6f60-4468-a087-5d125ec3c52e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Bruce Lee shout like a lion ,wild fighter</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/75a8b5ce-6481-4fad-b640-3d49cee53b04.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">teenage girl in red skirt enters a green-lit cave</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/ea2e33a7-bd55-4638-8949-81510ae9e311.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Within a vibrant market scene, otters expertly juggle an array of colorful fruits, creating a lively spectacle. Cinematically zoom in to showcase their dexterity and the vibrant hues of the fruits, with the 4K resolution highlighting the rich textures.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/78c6b0d4-f612-4783-84a7-5ed691d8c314.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Coffee pouring into a cup.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/36f6abe0-0533-44ea-96cf-7b1d1d3b8243.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Amidst a lush meadow, otters don aprons and chef hats, skillfully preparing a miniature sushi feast on a lily pad. Capture the detailed sushi-making process with dynamic close-ups, and the camera executing a graceful orbit around the culinary otters to showcase their precision.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/ca571258-30b2-4f56-bcce-710dc7f5e1a6.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A bustling street in London, with double-decker buses and red telephone booths. The famous Big Ben towers in the background.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/49619e58-7de3-4e9c-8eba-e0e588f5c0f9.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A group of teenagers skateboard in an empty parking lot.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/208eae39-3292-4e9c-94e1-f1e601f9ecc8.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In a potter's studio, skilled hands mold clay into a delicate sculpture. Utilize sweeping arcs to highlight the shaping process, emphasizing the intricate details emerging from the artist's touch.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/07dce8a0-4a30-43b0-b772-217e46968504.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Vintage cars race along a winding coastal highway at sunset. Cinematically capture the gleaming chrome details and classic aesthetics, while the camera smoothly glides alongside, framing the cars against the scenic backdrop.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/67193d90-034a-4983-935f-2af431cf5d3e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Within a clockmaker's workshop, intricate gears turn with precision. Employ precise rotations and close-ups to reveal the mechanical beauty, emphasizing the fine craftsmanship of the timepiece.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/d1bf1e6d-fd80-4436-ba5b-e47377ff386a.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">3 sheep enjoying spaghetti together</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/a35ddb8f-d00c-449e-9311-44fbc4d5d1b6.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A teddy bear washing dishes.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/0b9d2ac5-8669-4bc4-882d-58e04de0981e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A photo of an astronaut riding a horse in the forest., Romero Britto style</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/0116ce15-34a7-4b7a-9b25-66ff31ffd574.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">goldfish in glass</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/645ee887-f631-48da-adfa-db852d3d4604.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A golden retriever eating ice cream on a beautiful tropical beach at sunset, high resolution</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/5fc9df42-2b09-44dd-b340-4fde4dbeaa63.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cat, dressed in detective attire, examines a magnifying glass over a 'crime scene' made of scattered yarn. Cinematic lighting accentuates the feline investigator's meticulous inspection. Camera glides in a subtle tracking shot, revealing clues.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/1ca3adee-95d9-44c3-ae86-229dd66a29eb.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Melting ice cream dripping down the cone.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/ab8b3cc1-9c15-4de3-8309-aecdfd55a039.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In a bustling restaurant kitchen, showcase the chaos of chefs preparing a gourmet feast. Utilize tight close-ups and quick cuts to highlight the sizzling pans, chopping knives, and intricate plating details, creating a visually immersive experience.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/da9760ca-a577-4d03-a87c-685237063750.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A photo of a Corgi dog riding a bike in Times Square. It is wearing sunglasses and a beach hat.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/4bb8a263-e61b-42ef-b40c-42fd9ecc4c9f.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Amidst the ruins of a post-apocalyptic city, a lone robot scavenger sifts through debris, its sensors scanning for salvageable materials. Cinematic 4K shots capturing the gritty atmosphere, camera tilting and panning to emphasize the desolation.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/be62c18d-2e42-4ad0-8949-ec24f92cfc75.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A horse gallops through a field, kicking up dust with its hooves.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/dc3b6c7f-6806-4396-97d3-f58944afd258.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">a group of ants are eating a piece of bread on the floor.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/d977e1c8-59d0-43cd-812c-df5fe9c144d1.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">first person perspective, a four-piece band on a stage in front of a small crowd</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/614bd277-97e3-4217-9dd6-83ac3554cdea.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A dirt bike navigates through a dense forest trail. 4K close-up of the bike maneuvering through foliage, camera follows the rider's perspective, creating an immersive experience of the off-road adventure.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/eab7e3d0-cc1e-475e-8201-cc1f42875f5e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Inside a bustling beehive, worker bees construct hexagonal honeycombs. 4K macro shot with a slow lateral track, capturing the meticulous craftsmanship of the bees and the mesmerizing patterns of the hive.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/3c7f6153-81ae-485b-9b55-c98a3145a51e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Across a sun-soaked desert, two sports cars engage in a high-speed chase. Render the swirling dust, glinting sunlight on the vehicles, and capture the intensity with fast-paced, low-angle tracking shots.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/ed6f584d-d5a4-4845-8133-f934ecafd8d2.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">The man will be piloting a small plane for an aerial tour.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/34cf2418-21e6-437c-9fe3-eb1f93136ede.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A trio of fashionable, beret-clad cats sips coffee at a chic Parisian cafe., time-lapse photography</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/39140e69-2c33-4cc2-9119-efbde082ba8a.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In a sunlit meadow, otters don tiny bowties and engage in a formal tea party on a miniature table. Cinematic close-ups of their adorable expressions, camera smoothly circling the scene.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/37c34573-ed08-409b-9007-4db4990b4f8e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cyborg koala dj in front of a turntable, in heavy raining futuristic tokyo rooftop cyberpunk night, sci-fi, fantasy, intricate, neon light,  soft light, smooth, sharp focus, illustration.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/91328be3-31e5-4dff-9440-b997e01d9742.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Atop dramatic cliffs, two warriors engage in a sword fight. Capture the intricate choreography of the duel, emphasizing every clash and parry. Use sweeping crane shots to showcase the breathtaking scenery.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/8ea5ec89-97c3-4a17-b4f5-64a8074b628c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">the brides of dracula</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/4a45ee42-4fad-4510-9a37-0d2e64ee75bd.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A bear is giving a presentation in classroom.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/da46e41b-7311-4b9b-89ac-21db708e6b3c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut cooking with a pan and fire in the kitchen, high definition, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/09e5ce8d-0982-4428-bb70-e67bab3b162f.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cute golden hamster throwing punches wearing pair of boxing gloves in a boxing ring</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/04701453-c910-4870-b05c-781110f710c8.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A couple enjoys a romantic gondola ride in Venice, Italy.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/41d6649a-2896-4175-b9f7-4ac3fab7b2e8.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In the heart of a city's underground racing scene, modified cars with roaring engines compete in illegal street races. Showcase the intense acceleration, drifts around corners, and the adrenaline-pumping energy of the night races.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/f7c58ebe-7871-466a-bcf4-2b7e9a22335e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A squirrel eating a burger.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/21007b14-6e68-4cfe-bfc9-409a3f0ca35a.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In a high-tech control room, otters operate an imaginary spaceship console, embarking on an interstellar adventure. Cinematic lighting effects enhance the futuristic setting, and the camera executes quick cuts to showcase the excitement of their space journey.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/c4afb04c-036b-45dd-943d-69bc29b13b9c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">slow motion, A brown bird and a blue bear.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/84743dd8-77be-4707-9702-37dbc34b2ca4.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A horse galloping through van Gogh's Starry Night.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/79978796-f98c-4f14-9eed-fd1da512479e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In a sun-kissed canyon, a lone motorcycle drifts around sharp turns. Cinematic close-ups capture the rider's focus, while the camera smoothly follows the arc of the drift with dynamic sweeps.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/7fa667b1-5768-4669-bc82-523fa9018443.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Chinese traditional beauty, wearing a golden dragon robe, wearing a phoenix crown, behind the Forbidden City, dignified temperament</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/52175d80-7122-4c28-9c30-9e34792df8b8.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut flying in space, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/b79a79ec-d076-49b5-9ba3-80048dbbc00f.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">medium shot of Christine, a beautiful 25-year-old brunette resembling Selena Gomez, anxiously looking up as she walks down a New York street, cinematic style</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/9f64a287-47e1-4fa3-bd4c-f398dfc83060.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Within the depths of crystal-filled caves, a mythical dragon takes flight. The 4K resolution emphasizes the iridescent glow of the crystals as the camera follows the dragon's agile movements with sweeping arcs and dynamic twists.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/cfa2ed6f-602f-4e1e-ae5d-435ecafcbad2.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A golden retriever has a picnic on a beautiful tropical beach at sunset, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/ad6c06d4-a55b-40b0-b073-1e84697846e9.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In a grand concert hall, focus on an otter gracefully playing a piano with remarkable skill. Showcase the 4K details of water droplets elegantly splashing as its paws dance across the keys, camera smoothly gliding from one side of the piano to the other.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/8dfc0af9-1e5e-450f-b940-4af763c6e799.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Within a futuristic factory, robots assemble intricate machinery. Render detailed close-ups of robotic movements and precision. Use a mix of steady pans and close-ups to convey the complexity and efficiency of the assembly process.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/762a78f8-056f-44f9-ad61-11d8bf3fdb31.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">a dog wearing vr goggles on a boat</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/7913c9b9-51fa-4c3a-9f86-67f6af839bbc.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Explore the lush rainforest canopy, teeming with exotic flora and fauna. The camera, in 4K clarity, glides seamlessly through the dense foliage, capturing the vibrant colors and dynamic life of the tropical ecosystem.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/5e47460c-3db3-4749-8beb-6d0efe3b0999.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Spicy chicken in creamy tomato sauce.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/31cb7d4d-3136-4145-ac89-db7b4d3ac5cb.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Close up of grapes on a rotating table. High definition.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/38ec797d-6c86-42c3-9930-3dddefc3db89.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Within a rainforest, a raindrop splashes onto a lush leaf. Execute rapid, dynamic close-ups to capture the cascading water droplets and the vibrant reflections on the foliage.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/1e0cbc05-172b-4e72-9691-139134f57bc9.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A photo of a Corgi dog riding a bike in Times Square. It is wearing sunglasses and a beach hat.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/4e37f128-d2dd-4c4c-bf70-8ad1202c995a.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Within a futuristic factory, robots assemble intricate machinery. Render detailed close-ups of robotic movements and precision. Use a mix of steady pans and close-ups to convey the complexity and efficiency of the assembly process.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/7c0a2625-863f-43f3-b8ef-2e067240f5f2.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In a woodland workshop, otters don tiny tool belts and construct elaborate treehouses. Cinematic close-ups of their meticulous work, camera executing dynamic crane shots to reveal the intricate details of the treetop constructions.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/68d311e3-c2f5-4180-a29c-c729eab954f9.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Cats engage in a strategic chess match on an ornate board. High-resolution details of the chess pieces and board, precise camera movements following the strategic moves, and 4K resolution to capture the intensity of the match.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/29b848bb-a44e-44b9-9dda-24bd480d3779.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Within a cozy reading nook, otters don reading glasses and engross themselves in tiny newspapers, appearing absorbed in the latest otter news. Use cinematic framing techniques to capture their expressions, with the camera executing subtle dollying movements to evoke the charm of the otters' human-like activities.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/068087e2-f9f2-4a92-888c-2ae60d47c65d.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Time lapse at a fantasy landscape, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/bee5b983-dd12-452f-a0c9-99a51311f10a.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Glass sphere filled with swirling multicolored liquid, cinematic lighting.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/c60c89b5-e018-487e-a75c-78102106d46d.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In an empty parking lot, film a professional car drifting exhibition. Utilize low-angle shots and fast-paced cuts to emphasize the precision of the drifts, showcasing the detailed tire smoke and the sleek design of the drifting cars in cinematic 4K.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/8b5e1d03-66d7-43c4-b83f-0aa70f35ba34.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Teddy bear walking down 5th Avenue, front view, beautiful sunset, close up, high definition, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/74f87b36-7c21-4b6a-8f28-a439e5586ac3.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A group of teenagers skateboard in an empty parking lot.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/8be81f26-ac22-4682-a2dd-03f91dd1b838.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">With the style of van gogh, A young couple dances under the moonlight by the lake.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/4138e7ee-51fa-45ea-8708-4135afd6c69c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A hamster wearing virtual reality headsets is a dj in a disco</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/17198959-8fe6-4e9a-860c-77799d04dc3c.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A skull burning while being held up by a skeletal hand, hyperdetailed, volumetric light, f8 aperture.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/94a20e6c-10c5-48c6-8993-9985fe093b30.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">a monkey eating a pizza in central park, GoPro film style</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/faedcbfa-4abd-49fb-93e7-861abe8cfc89.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">In a dimly lit jazz club, otters form a jazz band, playing musical instruments with skill and enthusiasm. Employ a cinematic tracking shot to capture the rhythm, with the 4K resolution highlighting the subtle movements of their paws and the reflections of stage lights.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/ffd22a57-2ce7-4dd8-bd15-c0cbd04025fb.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut playing with sparklers for Diwali, photorealistic</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/0ea58803-0c20-4bc7-9aa6-5a93f6a11e37.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A man lifts weights at the gym, working on his strength.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/812306d9-5d7b-4cd9-8ae9-99a6df384264.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A happy pig rolling in the mud on a sunny day.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/858f96d5-7098-48a1-9ea6-4cd55519644a.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An animated painting of fluffy white clouds moving in sky.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/cb552be2-d0ac-4272-aea1-c79d8fc10346.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Transport to a movie set where an otter serves as a film director. Capture the intensity of the moment with furrowed brows and raised paws shouting "Action!" Focus on the 4K details of the director's chair, script, and the bustling film crew. Use dynamic camera angles to convey the energy of the film set.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/b0356bac-8109-4110-b486-e5ec5e218d3b.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Experience a bustling cityscape in surreal time-lapse. The camera captures the city's evolution over four seconds, emphasizing the fluid motion of traffic, changing lights, and the dynamic pulse of urban life in stunning 4K detail.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/51d91544-0c40-4198-b729-ed806135b236.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A supernova explosion in space</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/7a117f2c-52cd-41cb-951c-4fee2ccbff3f.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Otters don superhero capes and engage in epic battles against imaginary villains on a city rooftop. Cinematic shots with dynamic angles, camera executing swooping movements to follow the otter superheroes' daring actions.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/686874f6-2d84-462c-b89b-51cbed0f3f00.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Two elephants are playing on the beach and enjoying a delicious beef stroganoff meal., camera rotate anticlockwise</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/2ee1117b-9467-4100-b8a7-43c6673a03b3.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">a dog wearing vr goggles on a boat</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/686307a2-d33d-44ab-9b62-d3066ccb5668.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cat wearing sunglasses and working as a lifeguard at a pool.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/368cace3-2bda-482e-8c1f-fceb505fa69d.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Noodles falling into a bowl of soup</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-4 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/our_samples/69e650ca-176b-493a-be52-f45645f8930e.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Flying through an intense battle between pirate ships in a stormy ocean.</div>
+    </div>
+</div>
+<!-- Grid column -->
+
+
+
+
+
+
+
+			</div>
+			<!-- Grid row -->
+		</div>
+
+		<div class="container-md mt-4">
+			<div class="row pt-1 justify-content-sm-center">
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="stories.html" role="button">Back</a>
+				<a class="sm-1 mx-1 btn btn-primary mt-2" href="our_samples_3d.html" role="button">Next</a>
+			</div>	
+		</div>
+
+		<!-- Footer -->
+		<section class="jumbotron text-center py-7 mt-5 mb-0">
+		</section>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="resources/jquery-3.4.1.slim.min.js"></script>
+		<script src="resources/popper.min.js"></script>
+		<script src="resources/bootstrap.min.js"></script>
+
+	</body>
+	</html>

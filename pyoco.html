@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="resources/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/stylesheet.css" rel="stylesheet">
+
+    <title>SnapVideo</title>
+    <link rel="icon" type="image/x-icon" href="resources/cvr_logo_notext.png">
+</head>
+<body>
+
+
+    <section class="jumbotron text-center pb-2">
+        <div class="container">
+            <h1 class="jumbotron-heading">SnapVideo: Scaled Spatiotemporal Transformers for Text-to-Video Synthesis</h1>
+
+            <h4 class="font-italic pt-2" style="font-weight: normal">
+                <a href="https://www.willimenapace.com/">Willi Menapace</a><sup>1,2,*</sup>
+                <a href="https://github.com/AliaksandrSiarohin">Aliaksandr Siarohin</a><sup>1</sup>
+                <a href="https://universome.github.io/">Ivan Skorokhodov</a><sup>1</sup>
+                <a href="https://edeyneka.github.io/">Ekaterina Deyneka</a><sup>1</sup>
+                <a href="https://tsaishien-chen.github.io/">Tsai-Shien Chen</a><sup>1,3,*</sup></br>
+                <a href="https://anilkagak2.github.io/">Anil Kag</a><sup>1</sup>
+                <a href="https://yuwfan.github.io/">Yuwei Fang</a><sup>1</sup>
+                <a href="https://scholar.google.com/citations?user=PVZ0-dEAAAAJ&hl=en">Aleksei Stoliar</a><sup>1</sup>
+                <a href="http://elisaricci.eu/">Elisa Ricci</a><sup>2,4</sup>
+                <a href="https://alanspike.github.io/">Jian Ren</a><sup>1</sup>
+                <a href="http://www.stulyakov.com/">Sergey Tulyakov</a><sup>1</sup>
+            </h4>
+
+            <p class="pb-4 mt-3">
+                 Snap Inc.<sup>1</sup> University of Trento<sup>2</sup> UC Merced<sup>3</sup> Fondazione Bruno Kessler<sup>4</sup>
+                 Work performed while interning at Snap Inc.<sup>*</sup><br>
+            </p>
+
+        </div>
+
+    </section>
+
+        <div class="container-md">
+
+            <div class="row pt-1 justify-content-sm-center">
+                  
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="" role="button">Paper</a>
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="index.html" role="button">Overview</a>
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="stories.html" role="button">Stories</a>
+                <div class="btn-group">
+                    <a class="sm-1 mx-1 btn btn-primary mt-2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Samples</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                        <a class="dropdown-item" href="our_samples.html" role="button">More Samples</a>
+                        <a class="dropdown-item" href="our_samples_3d.html" role="button">Novel Views</a>
+                        <a class="dropdown-item" href="our_samples_diversity.html" role="button">Samples Diversity</a>
+                        <a class="dropdown-item" href="our_samples_hierarchical.html" role="button">Hierarchical Generation</a>
+                        <a class="dropdown-item" href="our_samples_ucf101.html" role="button">UCF101</a>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <a class="sm-1 mx-1 btn btn-primary mt-2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comparisons</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                        <a class="dropdown-item" href="gen2_pikalab_floor33.html" role="button">Gen2-PikaLab-Floor33</a>
+                        <a class="dropdown-item" href="imagen_video.html" role="button">Imagen Video</a>
+                        <a class="dropdown-item" href="pyoco.html" role="button">PYoCo</a>
+                        <a class="dropdown-item" href="video_ldm.html" role="button">Video LDM</a>
+                        <a class="dropdown-item" href="make_a_video.html" role="button">Make-A-Video</a>
+                    </div>
+                </div>
+
+
+            </div>  
+
+        </div>
+
+		<div class="container">
+
+
+			<hr class="mt-5">
+			
+			<h2 class="pt-4">Comparison to PYoCo</h2>
+
+            <p class="lead">We compare SnapVideo against publicly available samples released by the authors and perform a user study evaluating photorealism, video-text alignment, and motion quantity and quality. While the public samples may have been chosen to showcase the method's strengths, our method shows improved photorealism, video-text alignment, motion quantity and quality. Results are expressed in percentage of votes in favor of our method.</p>
+
+            <table id="example" class="table table-striped mt-5" style="width:100%">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Photorealism</th>
+                        <th>Video-Text Align.</th>
+                        <th>Motion Quantity</th>
+                        <th>Motion Quality</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PYoCo</td>
+                        <td>63.3</td>
+                        <td>64.9</td>
+                        <td>57.1</td>
+                        <td>63.9</td>
+                    </tr>
+                </tbody>
+            </table>
+
+			<p class="lead mt-5">We compare results produced by our method (left) with results produced by PYoCo (right)</p>
+            <p class="lead pt-2">Hover the cursor on the video to reveal the prompt.</p>
+
+						<!-- Grid row -->
+			<div class="row pt-3 nopadding">
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+					<h4 class="pt-3">SnapVideo</h4>
+				</div>
+				<!-- Grid column -->
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+					<h4 class="pt-3">PYoCo</h4>
+				</div>
+				<!-- Grid column -->
+			</div>
+			<!-- Grid row -->
+			<div class="row pt-3 nopadding">
+
+
+
+
+
+
+
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00000_b00007_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A lightning striking atop of eiffel tower, dark clouds in the sky, slow motion.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/6.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A lightning striking atop of eiffel tower, dark clouds in the sky, slow motion.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00000_b00008_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A dark tornado in a jar, 4K video, 3D rendered, well-rendered.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/44.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A dark tornado in a jar, 4K video, 3D rendered, well-rendered.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00000_b00009_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A chihuahua in astronaut suit floating in space, photo realistic, 8k, cinematic lighting, hd, atmospheric, hyperdetailed, deviantart, photography, glow effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/12.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A chihuahua in astronaut suit floating in space, photo realistic, 8k, cinematic lighting, hd, atmospheric, hyperdetailed, deviantart, photography, glow effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00000_b00010_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Room tour of an elegant living room, home, interior, cinematic, key art, hyperrealism, sun light, sunrays, canon eos c 300, ƒ 1.8, 35 mm, 8k, medium - format print.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/24.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Room tour of an elegant living room, home, interior, cinematic, key art, hyperrealism, sun light, sunrays, canon eos c 300, ƒ 1.8, 35 mm, 8k, medium - format print.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00001_b00007_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A very happy fuzzy panda dressed as a chef eating pizza in the New York street food truck.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/22.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A very happy fuzzy panda dressed as a chef eating pizza in the New York street food truck.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00001_b00008_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A chihuahua in astronaut suit and sunglasses floating in space, earth and moon in the background, photo realistic, 8k, cinematic lighting, hd, atmospheric, hyperdetailed, deviantart, photography, glow effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/25.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A chihuahua in astronaut suit and sunglasses floating in space, earth and moon in the background, photo realistic, 8k, cinematic lighting, hd, atmospheric, hyperdetailed, deviantart, photography, glow effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00001_b00009_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A boat sailing rapidly in a lake, in the style of a neo retro poster, matte drawing, outrun color palette.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/5.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A boat sailing rapidly in a lake, in the style of a neo retro poster, matte drawing, outrun color palette.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00001_b00010_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A huge dinosaur skeleton is walking in a golden wheat field on a bright sunny day.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/2.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A huge dinosaur skeleton is walking in a golden wheat field on a bright sunny day.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00002_b00007_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A jar filled with fire, 4K video, 3D rendered, well-rendered.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/43.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A jar filled with fire, 4K video, 3D rendered, well-rendered.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00002_b00008_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Glass sphere filled with swirling multicolored liquid, cinematic lighting.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/4.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Glass sphere filled with swirling multicolored liquid, cinematic lighting.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00002_b00009_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A robot dj is playing the turntable, in heavy raining futuristic tokyo rooftop cyberpunk night, sci-fi, fantasy, intricate, elegant, neon light, highly detailed, concept art, soft light, smooth, sharp focus, illustration.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/21.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A robot dj is playing the turntable, in heavy raining futuristic tokyo rooftop cyberpunk night, sci-fi, fantasy, intricate, elegant, neon light, highly detailed, concept art, soft light, smooth, sharp focus, illustration.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00002_b00010_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A rotating video of Sydney opera house, aerial view, sketch, drawing, detailed, pencil, black and white</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/32.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A rotating video of Sydney opera house, aerial view, sketch, drawing, detailed, pencil, black and white</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00003_b00007_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An epic tornado attacking above a glowing city at night, the tornado is made of smoke, highly detailed.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/3.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An epic tornado attacking above a glowing city at night, the tornado is made of smoke, highly detailed.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00003_b00008_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cute funny robot dancing, centered, award winning watercolor pen illustration, detailed, isometric illustration, drawing.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/19.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cute funny robot dancing, centered, award winning watercolor pen illustration, detailed, isometric illustration, drawing.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00003_b00009_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A video of porsche 911 with mountain in the background, photorealistic, vivid, sharp focus, reflection, refraction, sunrays, very detailed, intricate, intense cinematic composition</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/35.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A video of porsche 911 with mountain in the background, photorealistic, vivid, sharp focus, reflection, refraction, sunrays, very detailed, intricate, intense cinematic composition</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00003_b00010_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cute corgi wearing a red robe holding a sign that says "Merry Christmas". There is a Christmas tree in the background.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/7.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cute corgi wearing a red robe holding a sign that says "Merry Christmas". There is a Christmas tree in the background.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00004_b00006_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cute groundhog is burrowing, digging a hole, wildlife photography, photograph, high quality, wildlife, f 1.8, soft focus, 8k, award - winning photograph.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/28.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cute groundhog is burrowing, digging a hole, wildlife photography, photograph, high quality, wildlife, f 1.8, soft focus, 8k, award - winning photograph.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00004_b00007_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A spinning black hole in the universe, photo realistic, 8k, cinematic lighting, hd, atmospheric, hyperdetailed, photography, glow effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/33.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A spinning black hole in the universe, photo realistic, 8k, cinematic lighting, hd, atmospheric, hyperdetailed, photography, glow effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00004_b00008_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">The supernova explosion of a white dwarf in the universe, photo realistic, 8k, cinematic lighting, hd, atmospheric, hyperdetailed, photography, glow effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/40.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">The supernova explosion of a white dwarf in the universe, photo realistic, 8k, cinematic lighting, hd, atmospheric, hyperdetailed, photography, glow effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00004_b00009_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Zoom in video of a robot warrior, ultra realistic, concept art, intricate details, highly detailed, photorealistic, 8k, sharp focus, volumetric lighting unreal engine.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/18.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Zoom in video of a robot warrior, ultra realistic, concept art, intricate details, highly detailed, photorealistic, 8k, sharp focus, volumetric lighting unreal engine.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00004_b00010_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Drone flying through a dead, postapocalyptic city, fog, animals, birds, deer, bunny, overgrown with plant life and ivy, artgerm, 8k, well rendered.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/23.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Drone flying through a dead, postapocalyptic city, fog, animals, birds, deer, bunny, overgrown with plant life and ivy, artgerm, 8k, well rendered.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00005_b00006_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A guineapig painter is painting on the canvas, anthro, very cute kid's film character, concept artwork, 3d concept, detailed fur, high detail iconic character for upcoming film.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/14.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A guineapig painter is painting on the canvas, anthro, very cute kid's film character, concept artwork, 3d concept, detailed fur, high detail iconic character for upcoming film.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00005_b00007_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A video of milk pouring over strawberries, blueberries, and blackberries.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/46.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A video of milk pouring over strawberries, blueberries, and blackberries.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00005_b00008_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A tiger is eating grass, wildlife photography, photograph, high quality, wildlife, f 1.8, soft focus, 8k, award - winning photograph.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/34.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A tiger is eating grass, wildlife photography, photograph, high quality, wildlife, f 1.8, soft focus, 8k, award - winning photograph.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00005_b00009_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A skull burning while being held up by a skeletal hand, hyperdetailed, volumetric light, f8 aperture.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/0.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A skull burning while being held up by a skeletal hand, hyperdetailed, volumetric light, f8 aperture.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00005_b00010_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cartoon circus wolf is taking a selfie with phone, anthro, very cute kid's film character, concept artwork, 3d concept, detailed fur, high detail iconic character for upcoming film.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/10.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cartoon circus wolf is taking a selfie with phone, anthro, very cute kid's film character, concept artwork, 3d concept, detailed fur, high detail iconic character for upcoming film.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00006_b00006_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Salt and pepper sprinkling over a steak, potatos and vegetables on the side, depth of field, soft light, centered, extremely detailed, Nikon D850, (35mm|50mm|85mm), award winning photography.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/38.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Salt and pepper sprinkling over a steak, potatos and vegetables on the side, depth of field, soft light, centered, extremely detailed, Nikon D850, (35mm|50mm|85mm), award winning photography.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00006_b00007_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cute anime girl looks at the beautiful nature through the window of a moving train, well rendered, 3D rendered.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/27.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cute anime girl looks at the beautiful nature through the window of a moving train, well rendered, 3D rendered.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00006_b00008_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cyborg koala dj in front of a turntable, in heavy raining futuristic tokyo rooftop cyberpunk night, sci-fi, fantasy, intricate, neon light,  soft light, smooth, sharp focus, illustration.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/13.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cyborg koala dj in front of a turntable, in heavy raining futuristic tokyo rooftop cyberpunk night, sci-fi, fantasy, intricate, neon light,  soft light, smooth, sharp focus, illustration.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00006_b00009_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A video of milk pouring over raspberries and blackberries.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/45.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A video of milk pouring over raspberries and blackberries.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00006_b00010_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Small boat sailing in the ocean, giant Cthulhu monster coming out from a dense foggy mist in the background, giant waves attacking, detailed, volumetric lighting, sharp focus, scenery, photorealism, highly detailed, concept art.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/8.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Small boat sailing in the ocean, giant Cthulhu monster coming out from a dense foggy mist in the background, giant waves attacking, detailed, volumetric lighting, sharp focus, scenery, photorealism, highly detailed, concept art.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00007_b00006_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cartoon white wolf is giving a puppy-dog eyes, anthro, very cute kid's film character, concept artwork, 3d concept, detailed fur, high detail iconic character for upcoming film.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/11.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cartoon white wolf is giving a puppy-dog eyes, anthro, very cute kid's film character, concept artwork, 3d concept, detailed fur, high detail iconic character for upcoming film.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00007_b00007_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A high quality 3D render of hyperrealist, super strong, multicolor stripped, and fluffy bear with wings, highly detailed, sharp focus.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/1.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A high quality 3D render of hyperrealist, super strong, multicolor stripped, and fluffy bear with wings, highly detailed, sharp focus.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00007_b00008_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Tomato sauce pouring over fries, depth of field, bokeh, soft light, centered, extremely detailed, Nikon D850, (35mm|50mm|85mm), award winning photography.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/16.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Tomato sauce pouring over fries, depth of field, bokeh, soft light, centered, extremely detailed, Nikon D850, (35mm|50mm|85mm), award winning photography.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00007_b00009_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cute rabbit is eating grass, wildlife photography, photograph, high quality, wildlife, f 1.8, soft focus, 8k, award - winning photograph.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/29.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cute rabbit is eating grass, wildlife photography, photograph, high quality, wildlife, f 1.8, soft focus, 8k, award - winning photograph.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00007_b00010_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">The beginning of the universe, photo realistic, 8k, cinematic lighting, hd, atmospheric, hyperdetailed, photography, glow effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid flex squarevideo" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/pyoco/15.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">The beginning of the universe, photo realistic, 8k, cinematic lighting, hd, atmospheric, hyperdetailed, photography, glow effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+			<!-- Grid row -->
+        </div>
+        <!-- Container -->   
+
+        <div class="container-md mt-4">
+            <div class="row pt-1 justify-content-sm-center">
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="imagen_video.html" role="button">Back</a>
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="video_ldm.html" role="button">Next</a>
+            </div>  
+        </div>
+
+        <!-- Footer -->
+        <section class="jumbotron text-center py-7 mt-5 mb-0">
+        </section>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="resources/jquery-3.4.1.slim.min.js"></script>
+		<script src="resources/popper.min.js"></script>
+		<script src="resources/bootstrap.min.js"></script>
+
+	</body>
+	</html>

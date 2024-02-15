@@ -1,0 +1,1367 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="resources/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/stylesheet.css" rel="stylesheet">
+
+    <title>Snap Video</title>
+    <link rel="icon" type="image/x-icon" href="resources/cvr_logo_notext.png">
+</head>
+<body>
+
+
+    <section class="jumbotron text-center pb-2">
+        <div class="container">
+            <h1 class="jumbotron-heading">Mind the Time: Scaled Spatiotemporal Transformers for Text-to-Video Synthesis</h1>
+
+            <h4 class="font-italic pt-2" style="font-weight: normal">
+                <a href="https://www.willimenapace.com/">Willi Menapace</a><sup>1,2,*</sup>
+                <a href="https://github.com/AliaksandrSiarohin">Aliaksandr Siarohin</a><sup>1</sup>
+                <a href="https://universome.github.io/">Ivan Skorokhodov</a><sup>1</sup>
+                <a href="https://edeyneka.github.io/">Ekaterina Deyneka</a><sup>1</sup>
+                <a href="https://tsaishien-chen.github.io/">Tsai-Shien Chen</a><sup>1,3,*</sup></br>
+                <a href="https://anilkagak2.github.io/">Anil Kag</a><sup>1</sup>
+                <a href="https://yuwfan.github.io/">Yuwei Fang</a><sup>1</sup>
+                <a href="https://scholar.google.com/citations?user=PVZ0-dEAAAAJ&hl=en">Aleksei Stoliar</a><sup>1</sup>
+                <a href="http://elisaricci.eu/">Elisa Ricci</a><sup>2,4</sup>
+                <a href="https://alanspike.github.io/">Jian Ren</a><sup>1</sup>
+                <a href="http://www.stulyakov.com/">Sergey Tulyakov</a><sup>1</sup>
+            </h4>
+
+            <p class="pb-4 mt-3">
+                 Snap Inc.<sup>1</sup> University of Trento<sup>2</sup> UC Merced<sup>3</sup> Fondazione Bruno Kessler<sup>4</sup>
+                 Work performed while interning at Snap Inc.<sup>*</sup><br>
+            </p>
+
+        </div>
+
+    </section>
+
+        <div class="container-md">
+
+            <div class="row pt-1 justify-content-sm-center">
+                  
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="" role="button">Paper</a>
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="index.html" role="button">Overview</a>
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="stories.html" role="button">Stories</a>
+                <div class="btn-group">
+                    <a class="sm-1 mx-1 btn btn-primary mt-2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Samples</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                        <a class="dropdown-item" href="our_samples.html" role="button">More Samples</a>
+                        <a class="dropdown-item" href="our_samples_3d.html" role="button">Novel Views</a>
+                        <a class="dropdown-item" href="our_samples_diversity.html" role="button">Samples Diversity</a>
+                        <a class="dropdown-item" href="our_samples_hierarchical.html" role="button">Hierarchical Generation</a>
+                        <a class="dropdown-item" href="our_samples_ucf101.html" role="button">UCF101</a>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <a class="sm-1 mx-1 btn btn-primary mt-2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comparisons</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                        <a class="dropdown-item" href="gen2_pikalab_floor33.html" role="button">Gen2-PikaLab-Floor33</a>
+                        <a class="dropdown-item" href="imagen_video.html" role="button">Imagen Video</a>
+                        <a class="dropdown-item" href="pyoco.html" role="button">PYoCo</a>
+                        <a class="dropdown-item" href="video_ldm.html" role="button">Video LDM</a>
+                        <a class="dropdown-item" href="make_a_video.html" role="button">Make-A-Video</a>
+                    </div>
+                </div>
+
+
+            </div>  
+
+        </div>
+
+		<div class="container">
+
+
+			<hr class="mt-5">
+			
+			<h2 class="pt-4">Comparison to Video LDM</h2>
+
+            <p class="lead">We compare SnapVideo against publicly available samples released by the authors and perform a user study evaluating photorealism, video-text alignment, and motion quantity and quality. While the public samples may have been chosen to showcase the method's strengths, our method shows improved photorealism, video-text alignment, motion quantity and quality. Results are expressed in percentage of votes in favor of our method.</p>
+
+            <table id="example" class="table table-striped mt-5" style="width:100%">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Photorealism</th>
+                        <th>Video-Text Align.</th>
+                        <th>Motion Quantity</th>
+                        <th>Motion Quality</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Video LDM</td>
+                        <td>61.7</td>
+                        <td>64.4</td>
+                        <td>62.2</td>
+                        <td>65.8</td>
+                    </tr>
+                </tbody>
+            </table>
+
+			<p class="lead mt-5">We compare results produced by our method (left) with results produced by Video LDM (right)</p>
+            <p class="lead pt-2">Hover the cursor on the video to reveal the prompt.</p>
+
+						<!-- Grid row -->
+			<div class="row pt-3 nopadding">
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+					<h4 class="pt-3">SnapVideo</h4>
+				</div>
+				<!-- Grid column -->
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+					<h4 class="pt-3">Video LDM</h4>
+				</div>
+				<!-- Grid column -->
+			</div>
+			<!-- Grid row -->
+			<div class="row pt-3 nopadding">
+
+
+
+
+
+
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00000_b00011_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Two pandas sitting at a table playing cards, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video27.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Two pandas sitting at a table playing cards, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00000_b00012_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Low angle of pouring beer into a glass cup.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video57.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Low angle of pouring beer into a glass cup.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00000_b00013_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Two raccoons reading books in NYC Times Square.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video28.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Two raccoons reading books in NYC Times Square.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00000_b00014_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A horse galloping through van Gogh's Starry Night.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video34.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A horse galloping through van Gogh's Starry Night.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00000_b00015_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Yellow flowers swing in wind.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video31.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Yellow flowers swing in wind.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00000_b00016_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A fat rabbit wearing a purple robe walking through a fantasy landscape.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video40.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A fat rabbit wearing a purple robe walking through a fantasy landscape.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00000_b00017_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut riding a horse in sunset, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video48.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut riding a horse in sunset, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00000_b00018_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Teddy bear walking down 5th Avenue, front view, beautiful sunset, close up, high definition, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video23.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Teddy bear walking down 5th Avenue, front view, beautiful sunset, close up, high definition, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00001_b00011_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A dog wearing virtual reality goggles in sunset, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video4.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A dog wearing virtual reality goggles in sunset, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00001_b00012_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A panda standing on a surfboard in the ocean in sunset, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video11.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A panda standing on a surfboard in the ocean in sunset, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00001_b00013_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Two pandas discussing an academic paper.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video63.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Two pandas discussing an academic paper.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00001_b00014_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Traveler walking alone in the misty forest at sunset.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video55.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Traveler walking alone in the misty forest at sunset.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00001_b00015_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Fireworks.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video19.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Fireworks.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00001_b00016_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Milk dripping into a cup of coffee, high definition, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video21.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Milk dripping into a cup of coffee, high definition, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00001_b00017_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Waves crashing against a lone lighthouse, ominous lighting.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video29.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Waves crashing against a lone lighthouse, ominous lighting.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00001_b00018_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Close up of grapes on a rotating table. High definition.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video56.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Close up of grapes on a rotating table. High definition.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00002_b00012_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Flying through a fantasy landscape, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video64.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Flying through a fantasy landscape, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00002_b00013_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut flying in space, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video16.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut flying in space, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00002_b00014_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A dog swimming.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video3.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A dog swimming.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00002_b00015_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Flying through an intense battle between pirate ships in a stormy ocean.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video51.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Flying through an intense battle between pirate ships in a stormy ocean.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00002_b00016_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cute happy Corgi playing in park, sunset, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video2.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cute happy Corgi playing in park, sunset, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00002_b00017_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A raccoon dressed in suit playing the trumpet, stage background, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video71.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A raccoon dressed in suit playing the trumpet, stage background, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00002_b00018_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Turtle swimming in ocean.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video26.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Turtle swimming in ocean.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00003_b00000_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Bird-eye view of a highway in Los Angeles.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video50.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Bird-eye view of a highway in Los Angeles.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00003_b00011_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Horror house living room interior overview design, Moebius, Greg Rutkowski, Zabrocki, Karlkka, Jayison Devadas, Phuoc Quan, trending on Artstation, 8K, ultra wide angle, pincushion lens effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video33.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Horror house living room interior overview design, Moebius, Greg Rutkowski, Zabrocki, Karlkka, Jayison Devadas, Phuoc Quan, trending on Artstation, 8K, ultra wide angle, pincushion lens effect.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00003_b00012_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A teddy bear is playing the electric guitar, high definition, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video58.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A teddy bear is playing the electric guitar, high definition, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00003_b00013_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A hot air balloon ascending over a lush valley, 4k, high definition.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video9.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A hot air balloon ascending over a lush valley, 4k, high definition.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00003_b00014_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Icelandic horses near lake.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video20.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Icelandic horses near lake.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00003_b00015_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">The Orient Express driving through a fantasy landscape, animated oil on canvas.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video24.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">The Orient Express driving through a fantasy landscape, animated oil on canvas.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00003_b00016_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A monkey is playing bass guitar, stage background, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video73.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A monkey is playing bass guitar, stage background, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00003_b00017_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A lion standing on a surfboard in the ocean in sunset, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video10.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A lion standing on a surfboard in the ocean in sunset, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00004_b00011_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut cooking with a pan and fire in the kitchen, high definition, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video46.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut cooking with a pan and fire in the kitchen, high definition, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00004_b00012_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A fantasy landscape, trending on artstation, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video39.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A fantasy landscape, trending on artstation, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00004_b00013_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A polar bear is playing bass guitar in snow, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video72.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A polar bear is playing bass guitar in snow, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00004_b00014_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Time lapse at a fantasy landscape, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video62.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Time lapse at a fantasy landscape, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00004_b00015_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A fox dressed in suit dancing in park.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video7.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A fox dressed in suit dancing in park.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00004_b00016_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Two raccoons are playing drum kit in NYC Times Square, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video67.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Two raccoons are playing drum kit in NYC Times Square, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00004_b00017_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A burning volcano.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video59.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A burning volcano.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00004_b00018_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A squirrel eating a burger.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video32.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A squirrel eating a burger.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00005_b00000_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A shiny golden waterfall flowing through glacier at night.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video12.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A shiny golden waterfall flowing through glacier at night.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00005_b00011_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A sloth playing video games and beating all the high scores.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video43.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A sloth playing video games and beating all the high scores.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00005_b00013_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A video that showcases the beauty of nature, from mountains and waterfalls to forests and oceans.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video66.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A video that showcases the beauty of nature, from mountains and waterfalls to forests and oceans.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00005_b00014_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A fantasy landscape, trending on artstation, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video5.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A fantasy landscape, trending on artstation, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00005_b00015_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An animated painting of fluffy white clouds moving in sky.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video45.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An animated painting of fluffy white clouds moving in sky.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00005_b00016_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut riding a horse, high definition, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video17.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut riding a horse, high definition, 4k.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00005_b00017_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cat wearing sunglasses and working as a lifeguard at a pool.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video38.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A cat wearing sunglasses and working as a lifeguard at a pool.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00005_b00018_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut feeding ducks on a sunny afternoon, reflection from the water.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video47.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">An astronaut feeding ducks on a sunny afternoon, reflection from the water.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00006_b00011_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Sunset time lapse at the beach with moving clouds and colors in the sky, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video22.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Sunset time lapse at the beach with moving clouds and colors in the sky, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00006_b00012_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Flying through fantasy landscapes, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video61.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Flying through fantasy landscapes, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00006_b00013_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A storm trooper riding a bike in sunset street, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video13.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A storm trooper riding a bike in sunset street, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00006_b00014_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Time lapse at the snow land with aurora in the sky, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video25.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Time lapse at the snow land with aurora in the sky, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00006_b00015_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Wood on fire.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video30.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Wood on fire.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00006_b00016_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A golden retriever has a picnic on a beautiful tropical beach at sunset, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video8.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A golden retriever has a picnic on a beautiful tropical beach at sunset, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00006_b00017_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A big moon rises on top of Toronto city.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video37.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A big moon rises on top of Toronto city.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00007_b00011_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A bigfoot walking in the snowstorm.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video1.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A bigfoot walking in the snowstorm.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00007_b00013_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A fire dragon breathing, trending on artstation, slow motion.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video41.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A fire dragon breathing, trending on artstation, slow motion.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00007_b00014_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A swarm of bees flying around their hive.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video44.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A swarm of bees flying around their hive.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00007_b00015_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Cherry blossoms swing in front of ocean view, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video18.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">Cherry blossoms swing in front of ocean view, 4k, high resolution.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00007_b00016_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A bear is giving a presentation in classroom.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video60.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A bear is giving a presentation in classroom.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/ours/r00007_b00017_00000.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A koala bear playing piano in the forest.</div>
+    </div>
+</div>
+<!-- Grid column -->
+<!-- Grid column -->
+<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center containeroverlay">
+    <video class="video-fluid w-100 flex" controls autoplay loop muted>
+        <source src="video_samples/baseline_comparisons/video_ldm/video42.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+        <div class="textoverlay">A koala bear playing piano in the forest.</div>
+    </div>
+</div>
+<!-- Grid column -->
+
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+			<!-- Grid row -->
+        </div>
+        <!-- Container -->   
+
+        <div class="container-md mt-4">
+            <div class="row pt-1 justify-content-sm-center">
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="pyoco.html" role="button">Back</a>
+                <a class="sm-1 mx-1 btn btn-primary mt-2" href="make_a_video.html" role="button">Next</a>
+            </div>  
+        </div>
+
+        <!-- Footer -->
+        <section class="jumbotron text-center py-7 mt-5 mb-0">
+        </section>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="resources/jquery-3.4.1.slim.min.js"></script>
+		<script src="resources/popper.min.js"></script>
+		<script src="resources/bootstrap.min.js"></script>
+
+	</body>
+	</html>
