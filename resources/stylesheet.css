@@ -22,11 +22,13 @@
     position: relative;
     width: 100%;
     height: 0;
+    left:  -124px;
 }
 
 #scrollbutton {
     position:  absolute;
     top: -50px;
+    left: 50%;
     border: 1px solid white;
 }
 
