@@ -9,7 +9,7 @@
     <link href="resources/bootstrap.min.css" rel="stylesheet">
     <link href="resources/stylesheet.css" rel="stylesheet">
 
-    <title>SnapVideo</title>
+    <title>Snap Video</title>
     <link rel="icon" type="image/x-icon" href="resources/cvr_logo_notext.png">
 </head>
 <body>
@@ -37,7 +37,7 @@
 
 	<section class="jumbotron text-center pb-2">
         <div class="container">
-            <h1 class="jumbotron-heading">SnapVideo: Scaled Spatiotemporal Transformers for Text-to-Video Synthesis</h1>
+            <h1 class="jumbotron-heading">Snap Video: Scaled Spatiotemporal Transformers for Text-to-Video Synthesis</h1>
 
             <h4 class="font-italic pt-2" style="font-weight: normal">
                 <a href="https://www.willimenapace.com/">Willi Menapace</a><sup>1,2,*</sup>
@@ -104,14 +104,14 @@
 				<h2 class="pt-4 text-center">Abstract</h2>
 
 				<p class="lead">Contemporary models for generating images show remarkable quality and versatility. Swayed by these advantages, the research community repurposes them to generate videos.
-	Since video content is highly redundant, we argue that naively bringing advances of image models to the video generation domain reduces motion fidelity, visual quality and impairs scalability. In this work, we build SnapVideo a video-first model that systematically addresses these challenges. To do that, we first extend the EDM framework to take into account spatially and temporally redundant pixels and naturally support video generation. Second,  we show that a U-Net—a workhorse behind image generation—scales poorly when generating videos, requiring significant computational overhead. Hence, we propose a new transformer-based 
+	Since video content is highly redundant, we argue that naively bringing advances of image models to the video generation domain reduces motion fidelity, visual quality and impairs scalability. In this work, we build Snap Video a video-first model that systematically addresses these challenges. To do that, we first extend the EDM framework to take into account spatially and temporally redundant pixels and naturally support video generation. Second,  we show that a U-Net—a workhorse behind image generation—scales poorly when generating videos, requiring significant computational overhead. Hence, we propose a new transformer-based 
 	architecture that trains 3.31 times faster than U-Nets (and is ~4.5 faster at inference). This allows us to efficiently train a text-to-video model with billions of parameters for the first time, reach state-of-the-art results on a number of benchmarks, and generate videos with substantially higher quality, temporal consistency, and motion complexity. The user studies showed that our model was favored by a large margin over the most recent methods.</p>
 			</div>
 
 
 
 
-			<h3 class="pt-5">The SnapVideo Model</h3>
+			<h3 class="pt-5">The Snap Video Model</h3>
 
 <!-- Grid row -->
 			<div class="row pt-3 nopadding">
@@ -140,7 +140,7 @@
 				<!-- Grid column -->
 				<!-- Grid column -->
 				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-2 text-center">
-				    <p class="lead">SnapVideo FIT Architecture</p>
+				    <p class="lead">Snap Video FIT Architecture</p>
 				</div>
 				<!-- Grid column -->
 
@@ -150,7 +150,7 @@
 
 			<p class="lead pt-2">Inspired by FITs, we propose to leverage redundant information between frames and introduce a scalable transformer architecture that treats spatial and temporal dimensions as a single, compressed, 1D latent vector. This highly compressed representation allows us to perform spatio-temporal computation jointly and enables modelling of complex motions.</p>
 
-			<p class="lead pt-2">Thanks to joint spatiotemporal video modeling, SnapVideo can synthesize temporally coherent videos with large motion (left) while retaining the semantic control capabilities typical of large-scale text-to-video generators (right).</p>
+			<p class="lead pt-2">Thanks to joint spatiotemporal video modeling, Snap Video can synthesize temporally coherent videos with large motion (left) while retaining the semantic control capabilities typical of large-scale text-to-video generators (right).</p>
 
 			<p class="lead pt-2">Hover the cursor on the video to reveal the prompt.</p>
 
